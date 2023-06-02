@@ -6,6 +6,13 @@ const path = require('path');
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, '..', 'public')))
 
+
+
+// routes
+app.use('/api', require('./api'))
+
+
+
 // 404 error handling
 app.use((req, res, next) => {
   if (path.extname(req.path).length) {
