@@ -1,5 +1,5 @@
 const router = require('express').Router()
-// ToDO: add db
+const {User} = require('../db')
 
 
 router.get('/', async(req, res, next)=> {
@@ -9,7 +9,7 @@ router.get('/', async(req, res, next)=> {
         exclude: ['password']
       }
     });
-    res.send(users);
+    res.json(users);
   }
   catch(ex){
     next(ex);
