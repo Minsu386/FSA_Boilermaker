@@ -6,9 +6,9 @@ import { Router } from 'react-router-dom';
 
 const Main = () => {
   <Router>
+    <Login />
     <div>
       <h2>test</h2>
-      <Login />
     </div>
   </Router>  
 }

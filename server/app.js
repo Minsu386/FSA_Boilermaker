@@ -17,6 +17,10 @@ app.use(express.urlencoded({extended: true}))
 app.use('/api', require('./api'))
 
 
+// sends index.html
+app.use('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public/index.html'));
+})
 
 // 404 error handling
 app.use((req, res, next) => {
@@ -29,10 +33,6 @@ app.use((req, res, next) => {
   }
 })
 
-// sends index.html
-app.use('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public/index.html'));
-})
 
 // error handling endware
 app.use((err, req, res, next) => {
