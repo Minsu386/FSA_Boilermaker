@@ -7,8 +7,8 @@ const cors = require('cors')
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, '..', 'public')))
 
-app.use(morgan('dev'))
 app.use(cors())
+app.use(morgan('dev'))
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
@@ -16,11 +16,11 @@ app.use(express.urlencoded({extended: true}))
 // routes
 app.use('/api', require('./api'))
 
-
 // sends index.html
-app.use('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public/index.html'));
-})
+app.use("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "/public/index.html"));
+});
+
 
 // 404 error handling
 app.use((req, res, next) => {
